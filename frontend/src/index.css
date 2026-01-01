@@ -21,4 +21,14 @@ a.active hr{
   }
 }
 
+::-webkit-scrollbar {
+  display: none;
+}
+html {
+  scrollbar-width: none;
+}
+body {
+  -ms-overflow-style: none;
+}
+
 @import "tailwindcss"
