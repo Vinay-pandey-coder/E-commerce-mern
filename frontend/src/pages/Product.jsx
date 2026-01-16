@@ -1,12 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { shopContext } from "../context/ShopContext";
+import { ShopContext } from "../context/ShopContext";
 import { assets } from "../assets/assets";
 import RelatedProducts from "../components/RelatedProducts";
 
 const Product = () => {
   const { productId } = useParams();
-  const { products, currency, addToCart } = useContext(shopContext);
+  const { products, currency, addToCart } = useContext(ShopContext);
   const [productData, setProductData] = useState(false);
   const [image, setImage] = useState("");
   const [size, setSize] = useState("");
@@ -23,7 +23,7 @@ const Product = () => {
 
   useEffect(() => {
     fetchProsuctData();
-  }, [productId]);
+  }, [productId,products]);
 
   return productData ? (
     <div className=" border-t-2 pt-10 transition-opacity ease-in duration-100 border-gray-200">
@@ -70,7 +70,7 @@ const Product = () => {
           <div className="flex flex-col gap-4 my-8">
             <p>Select Size</p>
             <div className="flex gap-2">
-              {productData.sizes.map((item, index) => (
+              {productData.size.map((item, index) => (
                 <button
                   onClick={() => setSize(item)}
                   className={`border border-gray-100 py-2 cursor-pointer px-4 bg-gray-100 ${
@@ -83,7 +83,10 @@ const Product = () => {
               ))}
             </div>
           </div>
-          <button onClick={()=>addToCart(productData._id,size)} className="bg-black text-white px-8 py-2 mt-4 text-sm active:bg-gray-700 cursor-pointer">
+          <button
+            onClick={() => addToCart(productData._id, size)}
+            className="bg-black text-white px-8 py-2 mt-4 text-sm active:bg-gray-700 cursor-pointer"
+          >
             Add to Cart
           </button>
           <hr className="mt-8 sm:w-4/5" />
@@ -125,7 +128,10 @@ const Product = () => {
       </div>
 
       {/* -------------- display related products ------------- */}
-      <RelatedProducts category={productData.category} subCategory={productData.subCategory} />
+      <RelatedProducts
+        category={productData.category}
+        subCategory={productData.subCategory}
+      />
     </div>
   ) : (
     <div className=" opacity-0"></div>

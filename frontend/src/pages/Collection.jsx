@@ -1,11 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
-import { shopContext } from "../context/ShopContext";
+import { ShopContext } from "../context/ShopContext";
 import { assets } from "../assets/assets";
 import Title from "../components/Title";
 import Productsitem from "../components/Productsitem";
 
 const Collection = () => {
-  const { products, search, showSearch } = useContext(shopContext);
+  const { products, search, showSearch } = useContext(ShopContext);
   const [showFilter, setShowFilter] = useState(false);
   const [filterProducts, setFilterProducts] = useState([]);
   const [Category, setCategory] = useState([]);
@@ -70,7 +70,7 @@ const Collection = () => {
 
   useEffect(() => {
     applyFilter();
-  }, [Category, subCategory,search,showSearch]);
+  }, [Category, subCategory, search, showSearch,products]);
 
   useEffect(() => {
     sortProduct();

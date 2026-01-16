@@ -1,11 +1,11 @@
 import React, { useContext, useState } from "react";
 import { assets } from "../assets/assets";
 import { Link, NavLink } from "react-router-dom";
-import { shopContext } from "../context/ShopContext";
+import { ShopContext } from "../context/ShopContext";
 
 const Navbar = () => {
   const [visible, setVisible] = useState(false);
-  const { setShowSearch, getCartCount } = useContext(shopContext);
+  const { setShowSearch, getCartCount } = useContext(ShopContext);
 
   return (
     <>
@@ -44,7 +44,7 @@ const Navbar = () => {
             alt=""
           />
           <div className=" group relative">
-            <Link to={'/login'}>
+            <Link to={"/login"}>
               <img
                 src={assets.profile_icon}
                 className="w-5 cursor-pointer"

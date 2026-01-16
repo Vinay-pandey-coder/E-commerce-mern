@@ -2,11 +2,11 @@ import React, { useContext, useState } from "react";
 import Title from "../components/Title";
 import CartTotal from "../components/CartTotal";
 import { assets } from "../assets/assets";
-import { shopContext } from "../context/ShopContext";
+import { ShopContext } from "../context/ShopContext";
 
 const PlaceOrderd = () => {
   const [method, setMethod] = useState("cod");
-  const { navigate } = useContext(shopContext);
+  const { navigate } = useContext(ShopContext);
 
   return (
     <>
