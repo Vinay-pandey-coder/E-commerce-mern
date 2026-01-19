@@ -94,7 +94,7 @@ const Login = () => {
           {currentState === "Login" ? (
             <p
               className=" cursor-pointer"
-              onClick={() => setCurrentState("Sing Up")}
+              onClick={() => setCurrentState("Sign Up")}
             >
               Create Account
             </p>
