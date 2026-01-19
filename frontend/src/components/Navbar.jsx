@@ -28,25 +28,32 @@ const Navbar = () => {
         </Link>
 
         <ul className="hidden sm:flex gap-5 text-sm text-gray-700">
-          <NavLink to="/" className="flex flex-col items-center gap-1">
+          <NavLink to="/" className="flex  items-center gap-1">
             <p>HOME</p>
             <hr className="w-2/4 border-none h-[1.5px] bg-gray-700 hidden" />
           </NavLink>
           <NavLink
             to="/collection"
-            className="flex flex-col items-center gap-1"
+            className="flex  items-center gap-1"
           >
             <p>COLLECTION</p>
             <hr className="w-2/4 border-none h-[1.5px] bg-gray-700 hidden" />
           </NavLink>
-          <NavLink to="/about" className="flex flex-col items-center gap-1">
+          <NavLink to="/about" className="flex  items-center gap-1">
             <p>ABOUT</p>
             <hr className="w-2/4 border-none h-[1.5px] bg-gray-700 hidden" />
           </NavLink>
-          <NavLink to="/contact" className="flex flex-col items-center gap-1">
+          <NavLink to="/contact" className="flex  items-center gap-1">
             <p>CONTACT</p>
             <hr className="w-2/4 border-none h-[1.5px] bg-gray-700 hidden" />
           </NavLink>
+          <a
+            href="https://e-commerce-mern-admin-lyart.vercel.app/"
+            target="_blank"
+            className="px-5 py-2 border border-gray-300 rounded-full text-sm text-gray-800 bg-white transition"
+          >
+            Admin Panel
+          </a>
         </ul>
 
         <div className="flex items-center gap-6">
@@ -68,7 +75,12 @@ const Navbar = () => {
               <div className="group-hover:block hidden absolute dropdown-menu right-0 pt-4">
                 <div className="flex flex-col gap-2 w-36 py-3 px-5 bg-slate-100 text-gray-500 rounded">
                   <p className="cursor-pointer hover:text-black">My Profile</p>
-                  <p onClick={()=>navigate('/orders')} className="cursor-pointer hover:text-black">Orders</p>
+                  <p
+                    onClick={() => navigate("/orders")}
+                    className="cursor-pointer hover:text-black"
+                  >
+                    Orders
+                  </p>
                   <p
                     onClick={logout}
                     className="cursor-pointer hover:text-black"
@@ -142,6 +154,15 @@ const Navbar = () => {
             >
               CONTACT
             </NavLink>
+
+            <a
+              onClick={() => setVisible(false)}
+              className="py-3 pl-6 border-b"
+              href="https://e-commerce-mern-admin-lyart.vercel.app/"
+              target="_blank"
+            >
+              ADMIN PANEL
+            </a>
           </div>
         </div>
       </div>
