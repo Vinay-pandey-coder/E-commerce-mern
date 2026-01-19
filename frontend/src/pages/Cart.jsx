@@ -10,21 +10,23 @@ const Cart = () => {
 
   const [cartData, setCartData] = useState([]);
   useEffect(() => {
-    const temData = [];
-    for (const items in cartItems) {
-      for (const item in cartItems[items]) {
-        if (cartItems[items][item] > 0) {
-          temData.push({
-            _id: items,
-            size: item,
-            quantity: cartItems[items][item],
-          });
+    if (products.length > 0) {
+      const tempData = [];
+      for (const items in cartItems) {
+        for (const item in cartItems[items]) {
+          if (cartItems[items][item] > 0) {
+            tempData.push({
+              _id: items,
+              size: item,
+              quantity: cartItems[items][item],
+            });
+          }
         }
       }
-    }
 
-    setCartData(temData);
-  }, [cartItems]);
+      setCartData(tempData);
+    }
+  }, [cartItems, products]);
 
   return (
     <>
@@ -36,7 +38,7 @@ const Cart = () => {
         <div>
           {cartData.map((item, index) => {
             const productData = products.find(
-              (product) => product._id === item._id
+              (product) => product._id === item._id,
             );
             return (
               <div
@@ -71,7 +73,7 @@ const Cart = () => {
                       : updateQuantity(
                           item._id,
                           item.size,
-                          Number(e.target.value)
+                          Number(e.target.value),
                         )
                   }
                   type="number"
